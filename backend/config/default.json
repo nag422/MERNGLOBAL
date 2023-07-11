@@ -1,0 +1,25 @@
+{
+	"mongo": {
+		"host": "localhost",
+		"port": "27017",
+		"database": "teamassessment",
+		"password": ""
+	},
+    "log": false,
+	"JWT": {
+		"accessTokenExpireAt": 7200,
+		"refreshTokenExpiredAt": 2592000,
+		"ACCESS_SECRET_KEY": "duXeE8*8T5qH^9=N",
+		"REFRESH_SECRET_KEY": "dUXeA8*8B5zH^9=N",
+		"TWO_STEP_KEY": "A^XSn&5%A",
+		"twoStepTokenExp": 120
+	},
+	"crypt": {
+		"KEY": "dUXeA88T5qH",
+		"ALGO": "aes-192-cbc"
+	},
+	"expireAt": 86400,
+	"secrete": "secrete",
+	"port": 3500,
+	"API_URL": "http://localhost:3500"
+}

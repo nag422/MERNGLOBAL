@@ -1,0 +1,31 @@
+$text: #0d0c0d;
+$background: #ffffff;
+$primary-button: #6D5271;
+$secondary-button: #F69036;
+$accent: #bdb7ba;
+$success-color: #60a638;
+$danger-color: #d62828;
+$bg-light-color:#DCD3E2;
+$bg-page-bg-color: #DCD3E2;
+
+$input-focus-width:40px;
+$input-focus-box-shadow: 1px 1px 5px $primary-button;
+$input-focus-color: $primary-button;
+$input-focus-border-color:$primary-button;
+$theme-colors: () !default;
+$theme-colors: map-merge(
+  (
+       
+    "primary":$primary-button,
+    "secondary":$secondary-button,
+    "info":$accent,
+    "warning":#FF6A63,
+    "dark":$text,
+    "white":$background,
+    "success":$success-color,
+    "danger":$danger-color,
+    "light":$bg-light-color,
+    "page-light":$bg-page-bg-color,
+  ),
+  $theme-colors
+);
