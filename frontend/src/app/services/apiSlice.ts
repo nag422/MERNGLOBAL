@@ -4,7 +4,6 @@ import { RootState } from '../store'
 
 export interface User {
     email: string
-    token: string
   }
 
 export const apiSlice = createApi({

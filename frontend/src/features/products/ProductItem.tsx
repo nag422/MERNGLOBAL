@@ -17,9 +17,9 @@ const ProductItem = (props: Props) => {
                     </div>
                 </Col>
                 <Col md="9" lg="9" sm="12">
-                    <div>
-                        <h2>Title: {title}</h2>
-                        <h2>Brand: {brand}</h2>
+                    <div className="text-start">
+                        <h4>Title: {title}</h4>
+                        <h4>Brand: {brand}</h4>
                     </div>
                 </Col>
             </Row>

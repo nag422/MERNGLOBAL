@@ -1,7 +1,7 @@
 import React, { useEffect, useState } from "react";
 import * as yup from "yup";
 import { toast } from "react-hot-toast";
-import { sleep } from "utils/helpers";
+import { decodeUrl, sleep } from "utils/helpers";
 import { useFormik } from "formik";
 import { useNavigate } from "react-router-dom";
 import { Alert, Button, Form, FormGroup, Input, Label } from "reactstrap";
@@ -39,10 +39,15 @@ const LoginForm = (props: Props) => {
     }),
     onSubmit: async (values) => {
       setErrorMessage(null);
-      console.log(values)
       try {
         const userResponse: any = await login(values).unwrap();
-        dispatch(setCredentials({ ...userResponse }))
+        const { accessToken } = userResponse;
+        const {UserInfo:{email}} = decodeUrl(accessToken.split(".")[1])
+        localStorage.setItem("authToken",accessToken)
+
+        dispatch(setCredentials({ token: accessToken, user: email }))
+
+        navigate('/products')
       } catch (err) {
         setErrorMessage("Login is failed! please check the credentials")
       }
@@ -89,7 +94,7 @@ const LoginForm = (props: Props) => {
           ) : null}
         </FormGroup>
         <FormGroup className="my-4">
-          <Button type="submit" color="primary" size="md" className="py-2" block>Login</Button>
+          <Button type="submit" color="primary" size="md" className="py-2" block>{isLoading ? "Please wait...":"Login"}</Button>
         </FormGroup>
       </Form>
       {errorMessage && <Alert color="danger">
