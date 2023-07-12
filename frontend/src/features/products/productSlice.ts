@@ -6,7 +6,7 @@ const initialState = productsAdapter.getInitialState()
 export const productApiSlice = apiSlice.injectEndpoints({
     endpoints: builder => ({
         getProducts: builder.query({
-            query: () => '/carts',
+            query: () => '/products/list',
             transformResponse: (responseData:any) => {
                 return productsAdapter.setAll(initialState, responseData)
             },

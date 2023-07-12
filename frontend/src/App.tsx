@@ -1,9 +1,10 @@
-import React, { Suspense } from 'react';
+import React, { Suspense, lazy } from 'react';
 import './App.scss';
 import { BrowserRouter, Routes, Route } from 'react-router-dom';
-import HomePage from 'features/home/HomePage';
 import { ToastHeader } from 'reactstrap';
-import ProductsPage from 'features/products/ProductsPage';
+
+const HomePage = lazy(()=> import('features/home/HomePage'));
+const ProductsPage = lazy(()=> import('features/products/ProductsPage'));
 
 function App() {
   return (
@@ -12,7 +13,7 @@ function App() {
         position="top-right"
       />
       <BrowserRouter>
-      <Suspense>
+      <Suspense fallback={<div>Loading...</div>}>
         <Routes>
             <Route index element={<HomePage />} />
             <Route path="products" element={<ProductsPage />} />

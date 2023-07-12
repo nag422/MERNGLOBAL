@@ -8,6 +8,7 @@ import {
     Collapse,
     NavbarToggler,
 } from "reactstrap";
+import { logo } from "utils/Images";
 
 const HomeNavBar = () => {
     const [isOpen, setIsOpen] = useState(false);    
@@ -26,7 +27,10 @@ const HomeNavBar = () => {
         <section className="home-navbar">
             <div>
                 <Navbar expand="sm" className="shadow-sm bg-white">
-                    <NavbarBrand href="/">EzYBOOk</NavbarBrand>
+                    <NavbarBrand href="/">
+                        <img src={logo} alt="logo" className="img-fluid" style={{width:"3rem"}} /> 
+                        <h5 className="d-inline mx-2">Global technologies</h5>
+                    </NavbarBrand>
                     <NavbarToggler onClick={toggle} />
                     <Collapse isOpen={isOpen} navbar>
                         <Nav className="me-auto" navbar>
