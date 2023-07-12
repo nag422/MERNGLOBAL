@@ -82,6 +82,7 @@ app.get('/', function (req, resp) {
   });
 
   app.use('/auth', require('./app/modules/users/routes/user.route'));
+  app.use('/products', require('./app/modules/products/routes/product.route'));
 
   app.all('*', (req, res) => {
     res.status(404);
