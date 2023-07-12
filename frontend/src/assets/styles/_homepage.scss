@@ -5,4 +5,9 @@
     background-repeat: no-repeat;
     min-height: calc(100vh - 4.6rem);
     overflow: hidden !important;
+    @media (max-width:640px){
+        background-position: center;
+        min-height: calc(100vh - 4rem);
+    }
+    
 }

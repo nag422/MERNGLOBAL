@@ -8,12 +8,21 @@ export const productApiSlice = apiSlice.injectEndpoints({
         getProducts: builder.query({
             query: () => '/products/list',
             transformResponse: (responseData:any) => {
-                return productsAdapter.setAll(initialState, responseData)
+                const parsedproducts = responseData.products;
+                const allProducts = parsedproducts.reduce((products:any, prod:any) => {
+                    const category = prod.brand
+                    if (products[category] == null) products[category] = []
+                    products[category].push(prod)
+                    return products
+                },{})
+                
+                return allProducts              
             },
-            providesTags: (result:any, error, arg) => [
-                { type: 'User', id: "LIST" },
-                ...result.ids.map((id:any) => ({ type: 'User', id }))
-            ]
+            // providesTags: (result:any, error, arg) => [
+            //     { type: 'Product', id: "LIST" },
+            //     ...result.ids.map((id:any) => ({ type: 'User', id }))
+            // ]
+            providesTags: ['Product']
         })
     })
 })
