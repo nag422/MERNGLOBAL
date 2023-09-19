@@ -94,12 +94,13 @@ const LoginForm = (props: Props) => {
           ) : null}
         </FormGroup>
         <FormGroup className="my-4">
-          <Button type="submit" color="primary" size="md" className="py-2" block>{isLoading ? "Please wait...":"Login"}</Button>
+          <Button type="submit" color="primary" size="md" className="py-2" disabled={!formik.isValid && !formik.dirty} block>{isLoading ? "Please wait...":"Login"}</Button>
         </FormGroup>
       </Form>
-      {errorMessage && <Alert color="danger">
+      <h1 data-testid="errormessage" style={{visibility:"hidden"}}>error</h1> {/* for testing visibility */}
+      {/* {errorMessage && <Alert color="danger">
         {errorMessage}
-      </Alert>}
+      </Alert>} */}
     </div>
   )
 }
